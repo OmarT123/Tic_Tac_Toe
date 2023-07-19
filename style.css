@@ -1,0 +1,43 @@
+body {
+  text-align: center;
+  align-content: center;
+  background-color: rgb(22, 21, 21);
+  margin: 0;
+  font-family: fantasy;
+}
+
+.head {
+  border-bottom: 1px rgba(255, 255, 255, 0.216) solid;
+  color: white;
+  font-size: 28px;
+  padding: 20px;
+}
+
+.gameboard {
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cell {
+  display: table;
+  border: 1px white solid;
+  height: 150px;
+  width: 150px;
+  margin: 5px auto;
+  color: white;
+  font-size: 70px;
+  text-align: center;
+}
+
+span {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.cell:hover {
+  background-color: beige;
+}
