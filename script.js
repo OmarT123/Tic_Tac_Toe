@@ -1,5 +1,7 @@
 var turn = "x";
 var gameRun = true;
+var score1 = 0;
+var score2 = 0;
 
 function playturn(id) {
   if (gameRun) {
@@ -77,13 +79,14 @@ function checkWinner() {
   }
 
   if (winner !== "") {
-    alert(winner + " WON!");
+    // alert(winner + " WON!");
     gameRun = false;
-    // wait then restart game
-
-    setTimeout(() => {
-      restartGame();
-    }, 5000);
+    if (winner === "X") document.getElementById("score1").innerHTML = ++score1;
+    else document.getElementById("score2").innerHTML = ++score2;
+    document.getElementById("reset").style.display = "inline-block";
+    document.getElementById("restart").style.display = "inline-block";
+    document.getElementById("winner").innerHTML =
+      (winner === "X" ? "Player 1" : "Player 2") + " Wins!";
   }
 }
 
@@ -92,6 +95,25 @@ function restartGame() {
   for (let i = 0; i < cells.length; i++) {
     cells[i].innerHTML = "";
   }
+  document.getElementById("reset").style.display = "none";
+  document.getElementById("restart").style.display = "none";
+  document.getElementById("winner").innerHTML = "";
   turn = "x";
   gameRun = true;
+}
+
+function resetGame() {
+  var cells = document.getElementsByClassName("cell");
+  for (let i = 0; i < cells.length; i++) {
+    cells[i].innerHTML = "";
+  }
+  turn = "x";
+  gameRun = true;
+  document.getElementById("reset").style.display = "none";
+  document.getElementById("restart").style.display = "none";
+  document.getElementById("winner").innerHTML = "";
+  score1 = 0;
+  score2 = 0;
+  document.getElementById("score1").innerHTML = 0;
+  document.getElementById("score2").innerHTML = 0;
 }
